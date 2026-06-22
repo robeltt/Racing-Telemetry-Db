@@ -1,0 +1,53 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: racing-mosquitto
+    ports:
+      - "1883:1883"          
+      - "9001:9001"         
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: racing-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: racing123
+      MYSQL_DATABASE: racing           
+    ports:
+      - "3306:3306"                   
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7
+    container_name: racing-mongo
+    ports:
+      - "27017:27017"                 
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+  neo4j:
+    image: neo4j:5
+    container_name: racing-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/racing123    
+    ports:
+      - "7474:7474"                  
+      - "7687:7687"                  
+    volumes:
+      - neo4j-data:/data
+    restart: unless-stopped
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+  mysql-data:
+  mongo-data:
+  neo4j-data:
+
+
