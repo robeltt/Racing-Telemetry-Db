@@ -1,5 +1,6 @@
 # Racing — A Polyglot Telemetry System for Motorcycle Racing
 
+![Racing telemetry](image.webp)
 A real-time race-telemetry pipeline that demonstrates **polyglot persistence**:
 a single stream of simulated motorcycle-racing data is published over **MQTT** and
 routed, by message type, into the database best suited to it:
@@ -46,17 +47,8 @@ Give them a few seconds to finish starting. You can check them with `docker ps`.
 ### 3. Load the MySQL schema
 
 This creates the tables, the trigger, the view and the stored procedure.
-Run it once after starting the containers:
+preferebly Run it once in MySQL Workbench:
 
-```bash
-# Windows (PowerShell)
-Get-Content schema.sql | docker exec -i racing-mysql mysql -uroot -pracing123 racing
-
-# macOS / Linux
-docker exec -i racing-mysql mysql -uroot -pracing123 racing < schema.sql
-```
-
-> You can also open `schema.sql` in MySQL Workbench and run it there.
 
 ### 4. Start the subscriber (the router)
 
