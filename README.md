@@ -1,7 +1,6 @@
 # Racing — A Polyglot Telemetry System for Motorcycle Racing
 
 ![Racing telemetry](image.webp)
-A real-time race-telemetry pipeline that demonstrates **polyglot persistence**:
 a single stream of simulated motorcycle-racing data is published over **MQTT** and
 routed, by message type, into the database best suited to it:
 
