@@ -1,4 +1,4 @@
-# Racing — A Polyglot Telemetry System for Motorcycle Racing
+# Racing — A Telemetry System for Motorcycle Racing
 
 ![Racing telemetry](image.webp)
 a single stream of simulated motorcycle-racing data is published over **MQTT** and
